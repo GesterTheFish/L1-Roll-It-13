@@ -1,6 +1,4 @@
 # Functions
-from C_01_Yes_No_Basic import want_instructions
-
 
 def yes_no(question):
 
@@ -19,11 +17,22 @@ def yes_no(question):
         else:
             print("Please enter yes or no.")
 
+def instructions():
+
+    """ Prints instructions """
+
+    print("""
+    ***Instructions***
+    
+    Roll the dice and try to win!
+    """)
+
 # Main Routine
 
-# Testing loop
-while True:
-    want_instructions = yes_no("Do you want to see the instructions? \n")
-    print(f"You chose {want_instructions}")
+want_instructions = yes_no("Would you like to see the instructions? \n").lower()
 
-print("We are done.")
+if want_instructions == "yes" or want_instructions == "y":
+    instructions()
+
+print()
+print("Program continues")
