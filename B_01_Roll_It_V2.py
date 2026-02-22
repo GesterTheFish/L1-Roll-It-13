@@ -1,5 +1,46 @@
 import random
 
+def yes_no(question):
+    """ Checks user response is yes/no  (y/n) returns 'yes' or 'no' """
+
+    while True:
+
+        # Asks if user would like to see instructions
+        response = input(question).lower()
+
+        # Checks response
+        if response == "y" or response == "yes":
+            return "yes"
+        elif response == "n" or response == "no":
+            return "no"
+        else:
+            print("Please enter yes or no.")
+
+def instructions():
+    """ Prints instructions """
+
+    print("""
+    ***Instructions***
+
+    Roll the dice and try to win!
+    """)
+
+def int_check():
+    """Checks if user enters int>=13"""
+
+    error = "please enter an integer that is greater than or equal to 13"
+
+    while True:
+        try:
+            response = int(input("What is your game goal? \n"))
+
+            if response < 13:
+                print(error)
+            else:
+                return response
+        except ValueError:
+            print(error)
+
 def initial_points(which_player):
     """Roll the dice twice and return total / if double points apply"""
 
@@ -30,7 +71,17 @@ user_score = 0
 comp_score = 0
 rounds_played = 0
 
-game_goal = int(input("Enter the game goal: "))
+# Welcome statement
+make_statement("Welcome to Roll It 13.", "☘️")
+
+# Ask user if they want to see instructions
+want_instructions = yes_no("Would you like to see the instructions? \n").lower()
+
+if want_instructions == "yes" or want_instructions == "y":
+    instructions()
+
+print()
+game_goal = int_check()
 
 # Play until winner is decided
 while comp_score < game_goal and user_score < game_goal:

@@ -45,6 +45,7 @@ def int_check():
 
 # Main Routine
 
+# Ask user if they want to see instructions
 want_instructions = yes_no("Would you like to see the instructions? \n").lower()
 
 if want_instructions == "yes" or want_instructions == "y":
