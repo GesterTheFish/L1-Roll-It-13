@@ -135,7 +135,7 @@ while comp_score < game_goal and user_score < game_goal:
 
 # End of game output final results
 
-make_statement("Game Over", "🏁 ]\")
+make_statement("Game Over", "🏁 ")
 
 print()
 if user_score > comp_score:
