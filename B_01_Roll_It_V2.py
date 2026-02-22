@@ -71,6 +71,8 @@ user_score = 0
 comp_score = 0
 rounds_played = 0
 
+game_history = []
+
 # Welcome statement
 make_statement("Welcome to Roll It 13.", "☘️")
 
@@ -180,6 +182,11 @@ while comp_score < game_goal and user_score < game_goal:
     comp_score += comp_points
     user_score += user_points
 
+    # Generate round results and dd to history list
+    game_results = f"Round {rounds_played}: User Points {user_points} | Computer Points {comp_points}, {winner} wins ({user_score} | {comp_score})"
+
+    game_history.append(game_results)
+
     # Show overall scores
     print("*** Game Update ***")
     print(f"User score: {user_score} | Computer score: {comp_score}")
@@ -193,4 +200,9 @@ if user_score > comp_score:
     winner = "user"
 else:
     winner = "computer"
-print(f"The {winner} won.")
+make_statement(f"The {winner} won", "👑")
+
+make_statement("Game History", "🎲")
+
+for item in game_history:
+    print(item)
